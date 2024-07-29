@@ -1,0 +1,45 @@
+﻿@model MvcMovie.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Results";
+    var query = ViewData["Query"] as string;
+    var genre = ViewData["Genre"] as string;
+    var results = Model as List<MvcMovie.Controllers.Movie>;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="get" action="/Home/Search">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="Query" value="@Model.Query" placeholder="Search by title..." aria-label="Search">
+        <select class="form-select" name="Genre">
+            <option value="">All Genres</option>
+            <option value="Drama" @(Model.Genre == "Drama" ? "selected" : "")>Drama</option>
+            <option value="Crime" @(Model.Genre == "Crime" ? "selected" : "")>Crime</option>
+            <option value="Action" @(Model.Genre == "Action" ? "selected" : "")>Action</option>
+            <option value="Fantasy" @(Model.Genre == "Fantasy" ? "selected" : "")>Fantasy</option>
+        </select>
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </div>
+    <div class="text-danger">
+        @Html.ValidationMessageFor(model => model.Query)
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Query) || !string.IsNullOrEmpty(Model.Genre))
+{
+    <h2>Results for "@Model.Query" in "@(string.IsNullOrEmpty(Model.Genre) ? "All Genres" : Model.Genre)":</h2>
+    @if (results.Count == 0)
+    {
+        <p>No results found.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var result in results)
+            {
+                <li>@result.Title - @result.Genre</li>
+            }
+        </ul>
+    }
+}
