@@ -1,5 +1,6 @@
 import csv
 import random
+import json
 
 
 
@@ -15,7 +16,8 @@ def retrieve_quotes(quotes_file = 'ran_quotes.csv' ):
     return random.choice(quotes)
 
 def retrieve_forecasts():
-    pass
+    try:
+        
 
 def retrieve_trends():
     pass
