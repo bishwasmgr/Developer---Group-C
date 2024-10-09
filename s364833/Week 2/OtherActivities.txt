@@ -1,0 +1,4 @@
+Vue.js Introduction: Participated in discussions about Vue.js and watched an introductory video to understand its core concepts.
+Jira Basics: Engaged in a session on Jira for task management, including creating and managing Scrum boards.
+GraphQL Overview: Explored GraphQL and discussed its relevance in the current project.
+LinkedIn Learning Courses: Shared resources and benefits of LinkedIn Learning courses among group members.

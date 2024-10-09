@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+</head>
+<body>
+    <h1>Contact Form</h1>
+    <form id="contact-form">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="response" style="display:none;">
+        <h2>Thank You!</h2>
+        <p>Your message has been submitted successfully.</p>
+    </div>
+
+    <script>
+        document.getElementById('contact-form').onsubmit = function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('response').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
